@@ -1,5 +1,9 @@
 import data_extractor
 import numpy as np
+import sklearn
+import sklearn.preprocessing
+import sklearn.model_selection
+from sklearn.ensemble import RandomForestClassifier
 
 if __name__ == '__main__':
 
@@ -62,5 +66,13 @@ if __name__ == '__main__':
 
 	np.random.shuffle(dataset)
 
-	print(dataset.shape)
+	X = dataset[:, :-1]
+	Y = dataset[:, -1]
 
+	X = sklearn.preprocessing.normalize(X)
+
+	x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, Y, test_size=0.2, random_state=2)
+
+	clf = RandomForestClassifier(n_estimators=50, random_state=2, verbose=True)
+	clf.fit(x_train, y_train)
+	print(clf.score(x_test, y_test))
