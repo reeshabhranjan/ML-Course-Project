@@ -8,11 +8,11 @@ data_path_root = 'UAH-DRIVESET-v1'
 def load_all_data():
 	"""Loads data and returns list of datasets as list.
 	List is segmented as behaviour type.
-	Code referred from: https://stackoverflow.com/a/19587581"""
+	List elements: [normal, aggressive, drowsy]."""
 
-	normal = []
-	aggressive = []
-	drowsy = []
+	_normal = []
+	_aggressive = []
+	_drowsy = []
 
 	file_list = glob.glob('**/SEMANTIC_ONLINE.txt', recursive=True)  # all SEMANTIC_ONLINE.txt files using regex
 
@@ -23,13 +23,13 @@ def load_all_data():
 	# load the data
 	for filename in file_list:
 		if "NORMAL" in filename:
-			normal.append(np.loadtxt(filename))
+			_normal.append(np.loadtxt(filename))
 		elif "DROWSY" in filename:
-			drowsy.append(np.loadtxt(filename))
+			_drowsy.append(np.loadtxt(filename))
 		elif "AGGRESSIVE" in filename:
-			aggressive.append(np.loadtxt(filename))
+			_aggressive.append(np.loadtxt(filename))
 
-	return normal, aggressive, drowsy
+	return _normal, _aggressive, _drowsy
 
 
 if __name__ == '__main__':
