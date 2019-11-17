@@ -48,3 +48,19 @@ if __name__ == '__main__':
 	
 	for i, drowsy_timeseries in enumerate(drowsy_timeseries_list):
 		drowsy_timeseries_list[i] = np.concatenate((drowsy_timeseries, np.full((drowsy_timeseries.shape[0], 1), 2)), axis=1)
+
+	dataset = normal_timeseries_list[0]
+
+	for i in range(1, len(normal_timeseries_list)):
+		dataset = np.concatenate((dataset, normal_timeseries_list[i]), axis=0)
+
+	for i in range(len(aggressive_timeseries_list)):
+		dataset = np.concatenate((dataset, aggressive_timeseries_list[i]), axis=0)
+
+	for i in range(len(drowsy_timeseries_list)):
+		dataset = np.concatenate((dataset, drowsy_timeseries_list[i]), axis=0)
+
+	np.random.shuffle(dataset)
+
+	print(dataset.shape)
+
