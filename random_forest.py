@@ -82,6 +82,7 @@ if __name__ == '__main__':
 
 	x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, Y, test_size=0.2, random_state=2)
 
-	clf = RandomForestClassifier(n_estimators=50, random_state=2, verbose=True)
+	clf = RandomForestClassifier(n_estimators=50, random_state=2)
 	clf.fit(x_train, y_train)
-	print(clf.score(x_test, y_test))
+	print("Train accuracy: " + str(clf.score(x_train, y_train)))
+	print("Test accuracy: " + str(clf.score(x_test, y_test)))
