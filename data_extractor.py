@@ -10,9 +10,9 @@ def load_all_data():
 	List is segmented as behaviour type.
 	List elements: [normal, aggressive, drowsy]."""
 
-	_normal = []
-	_aggressive = []
-	_drowsy = []
+	_normal = [] # contains data in form of numpy matrices corresponding to normal behaviour
+	_aggressive = [] # for aggressive behaviour
+	_drowsy = [] # similarly for drowsy behaviour
 
 	file_list = glob.glob('**/SEMANTIC_ONLINE.txt', recursive=True)  # all SEMANTIC_ONLINE.txt files using regex
 
