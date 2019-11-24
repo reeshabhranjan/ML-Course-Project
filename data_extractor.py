@@ -3,6 +3,7 @@ import os
 import glob
 import sklearn
 import sklearn.preprocessing
+import sklearn.utils
 
 data_path_root = 'UAH-DRIVESET-v1'
 
@@ -90,4 +91,9 @@ def prepare_dataset_for_lstm():
 
 if __name__ == '__main__':
 	# normal, aggressive, drowsy = load_all_data()
-	prepare_dataset_for_lstm()
+	x, y = prepare_dataset_for_lstm()
+	x, y = sklearn.utils.shuffle(x, y, random_state=2)
+	print(x.shape)
+	print(y.shape)
+	np.save("x", x)
+	np.save("y", y)

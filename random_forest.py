@@ -14,7 +14,7 @@ if __name__ == '__main__':
 	aggressive_timeseries_list = [] # similarly for aggressive
 	drowsy_timeseries_list = [] # similarly for drowsy
 
-	merging_extent = 5 # This tells for ith row, how many previous rows are we appending to it to
+	merging_extent = 10 # This tells for ith row, how many previous rows are we appending to it to
 						# make our ML model aware of the time-based interactions
 
 	# the following six for-loops just prepares the lists defined above

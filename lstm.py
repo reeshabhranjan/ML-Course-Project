@@ -1,2 +1,2 @@
-import torch
-print(torch.cuda.get_device_name(0))
+from keras import backend as K
+print(K.tensorflow_backend._get_available_gpus())
