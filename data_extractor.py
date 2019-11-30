@@ -90,10 +90,10 @@ def prepare_dataset_for_lstm():
 	return global_x, global_y
 
 if __name__ == '__main__':
-	# normal, aggressive, drowsy = load_all_data()
-	x, y = prepare_dataset_for_lstm()
-	x, y = sklearn.utils.shuffle(x, y, random_state=2)
-	print(x.shape)
-	print(y.shape)
-	np.save("x", x)
-	np.save("y", y)
+	normal, aggressive, drowsy = load_all_data()
+	# x, y = prepare_dataset_for_lstm()
+	# x, y = sklearn.utils.shuffle(x, y, random_state=2)
+	# print(x.shape)
+	# print(y.shape)
+	# np.save("x", x)
+	# np.save("y", y)
